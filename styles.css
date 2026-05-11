@@ -720,11 +720,6 @@ body {
     transform: translateX(4px);
 }
 
-/* Decorative vectors — hidden on desktop, shown on mobile via media query */
-.desktop-vector {
-    /* visible on desktop, hidden on mobile */
-}
-
 .mobile-arrow-new {
     display: none; /* shown via mobile media query */
 }
