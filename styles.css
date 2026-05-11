@@ -1,0 +1,996 @@
+/* ============================================================
+   COMPLIANCE LANDING PAGE — STYLESHEET
+   Author: SCS Frontend
+   Structure:
+     1. Global Reset & Base
+     2. Design Tokens (Typography Classes)
+     3. Layout Utilities
+     4. Navbar
+     5. Hero Section
+     6. Why Compliance Section
+     7. Feature Cards
+     8. Button System
+     9. Mobile Drawer
+    10. Mobile Overrides (@media max-width: 768px)
+============================================================ */
+
+
+/* ============================================================
+   1. GLOBAL RESET & BASE
+============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    background-color: #FFFFFF;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+}
+
+
+/* ============================================================
+   2. DESIGN TOKENS — Typography Utility Classes
+   Use these instead of repeating inline font styles.
+============================================================ */
+
+/* Page / hero heading — 64px */
+.heading-hero {
+    font-family: 'Roboto', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 85px;
+    color: #000000;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+/* Section heading — 48px */
+.heading-section {
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 70px;
+    color: #000000;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+/* Card / sub-heading — 24px */
+.heading-card {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    color: #000000;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+/* Body text — 18px */
+.body-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    color: #000000;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+/* Nav link — 16px */
+.nav-item {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: #4356D6;
+}
+
+.nav-item.active {
+    color: #4356D6;
+    font-weight: 500;
+}
+
+/* Brand accent color */
+.text-brand {
+    color: #4356D6;
+}
+
+
+/* ============================================================
+   3. LAYOUT UTILITIES
+   Containers follow max-width pattern (not fixed width).
+============================================================ */
+
+/* Main page wrapper — constrains to 1440px max */
+.page-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #FAFBFF 0%, #FAFBFF 100%);
+}
+
+/* Inner content area — constrains to 1240px max */
+.content-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 100px;
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   4. NAVBAR
+============================================================ */
+
+.navbar {
+    width: 100%;
+    height: 100px;
+    padding: 0;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 26px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 122px;
+    height: 34px;
+    object-fit: contain;
+}
+
+/* Desktop navbar CTA button */
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    border: none;
+    background-color: #4356D6;
+    color: #FFFFFF;
+    min-width: 169px;
+    height: 46px;
+}
+
+.nav-cta:hover {
+    background-color: #051aa3;
+}
+
+.nav-cta img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Hamburger (hidden on desktop) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Mobile-only navbar bar */
+.mobile-navbar {
+    display: none;
+    width: 100%;
+    height: 54px;
+    background: #FFFFFF;
+    padding: 10px 16px;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.mobile-navbar .logo img {
+    width: 122px;
+    height: 34px;
+}
+
+.mobile-hamburger-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mobile-hamburger-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+
+/* ============================================================
+   5. HERO SECTION
+============================================================ */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background-color: #FAFBFF;
+    padding: 80px 0;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 72px;
+    box-sizing: border-box;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 606px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+/* Underline vector under "Compliance" */
+.highlight {
+    color: #4356D6;
+    position: relative;
+    display: inline-block;
+}
+
+.highlight img {
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+/* Feature checklist rows */
+.feature-list-wrapper {
+    max-width: 466px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Each checklist row — uses flex/gap only, no fixed width/height */
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feature-row .check-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-row .check-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.feature-row span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    color: #000000;
+    text-transform: capitalize;
+}
+
+/* Hero CTA buttons row */
+.hero-buttons-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+}
+
+/* Hero illustration */
+.hero-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 739px;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 739px;
+    height: auto;
+    opacity: 1;
+}
+
+
+/* ============================================================
+   6. WHY COMPLIANCE SECTION
+============================================================ */
+
+.why-section {
+    width: 100%;
+    max-width: 1440px;
+    background-color: #FFFFFF;
+    padding: 50px 100px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.inner-wrapper {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    position: relative;
+}
+
+/* Top row: heading + description side by side */
+.top-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 33px;
+    align-items: flex-start;
+    position: relative;
+}
+
+.top-header .section-heading-block {
+    flex: 1;
+    max-width: 603px;
+}
+
+.top-header .section-desc-block {
+    flex: 1;
+    max-width: 603px;
+}
+
+/* Bottom row: illustration + cards */
+.bottom-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 52px;
+    align-items: center;
+    position: relative;
+}
+
+/* Left illustration */
+.illustration-container {
+    flex: 1;
+    max-width: 594px;
+    position: relative;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.section2-img {
+    width: 100%;
+    max-width: 474px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* ============================================================
+   7. FEATURE CARDS
+============================================================ */
+
+.cards-area {
+    flex: 1;
+    max-width: 594px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+}
+
+/* Individual card — min-height instead of fixed height */
+.feature-card {
+    width: 100%;
+    min-height: 142px;
+    padding: 20px;
+    border: 1px solid #E2E7FF;
+    border-radius: 8px;
+    background-color: #FAFBFF;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Card inner row — icon + text */
+.card-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 26px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Card icon wrapper */
+.card-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Card text block */
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    flex: 1;
+}
+
+
+/* ============================================================
+   8. BUTTON SYSTEM
+   .smart-btn  — animated icon-reveal button
+   .btn-filled — solid blue
+   .btn-outline — transparent bordered
+============================================================ */
+
+.smart-btn {
+    min-width: 213px;
+    height: 46px;
+    padding: 14px 22px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Icon hidden by default, slides in on hover */
+.smart-btn .icon-wrap {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-8px);
+    transition: width 0.35s ease, opacity 0.25s ease, transform 0.35s ease, margin-right 0.35s ease;
+}
+
+.smart-btn .btn-text {
+    transition: transform 0.35s ease;
+}
+
+.smart-btn:hover .icon-wrap {
+    width: 26px;
+    opacity: 1;
+    margin-right: 10px;
+    transform: translateX(0);
+}
+
+.smart-btn:hover .btn-text {
+    transform: translateX(2px);
+}
+
+/* Solid filled */
+.btn-filled {
+    background: #4356d6;
+    border: 1px solid #4356d6;
+    color: white;
+}
+
+.btn-filled:hover {
+    background: #051aa3;
+    border-color: #051aa3;
+}
+
+/* Transparent bordered */
+.btn-outline {
+    background: transparent;
+    border: 2px solid #4356d6;
+    color: #4356d6;
+}
+
+.btn-outline:hover {
+    background: #051aa3;
+    border-color: #051aa3;
+    color: white;
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+
+/* ============================================================
+   9. MOBILE DRAWER
+============================================================ */
+
+.mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 327px;
+    min-height: 100dvh;   /* dvh accounts for mobile browser chrome */
+    background: #FFFFFF;
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Drawer top bar — logo + close */
+.drawer-header {
+    width: 100%;
+    height: 54px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    background: #FFFFFF;
+}
+
+.drawer-header .logo img {
+    width: 122px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.drawer-close {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4356D6;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Drawer body — nav items + CTA */
+.drawer-body {
+    padding: 50px 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    flex: 1;
+}
+
+/* Menu items list */
+.drawer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Single menu item */
+.drawer-item {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    padding: 10px;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.drawer-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.drawer-item span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    transition: all 0.3s ease;
+}
+
+.drawer-item.active span {
+    color: #4356D6;
+}
+
+/* Hover: text + icon both turn brand blue */
+.drawer-item:hover span {
+    color: #4356D6;
+}
+
+.drawer-item:hover img {
+    filter: invert(34%) sepia(85%) saturate(1455%) hue-rotate(215deg) brightness(91%) contrast(89%);
+}
+
+/* Drawer CTA button */
+.drawer-cta {
+    width: 100%;
+    max-width: 282px;
+    height: 46px;
+    border-radius: 8px;
+    background: #4356D6;
+    border: 1px solid #4356D6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 22px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.drawer-cta:hover {
+    background-color: #051aa3;
+    border-color: #051aa3;
+}
+
+.drawer-cta img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.drawer-cta:hover img {
+    transform: translateX(4px);
+}
+
+/* Decorative vectors — hidden on desktop, shown on mobile via media query */
+.desktop-vector {
+    /* visible on desktop, hidden on mobile */
+}
+
+.mobile-arrow-new {
+    display: none; /* shown via mobile media query */
+}
+
+.div2-vector {
+    display: none; /* shown via mobile media query */
+}
+
+
+/* ============================================================
+   10. MOBILE OVERRIDES
+   All mobile responsive overrides for screens <= 768px.
+   Uses !important only where inline styles require overriding.
+============================================================ */
+
+@media (max-width: 768px) {
+
+    /* ── Navbar ───────────────────────────────────────────── */
+
+    .navbar {
+        display: none !important;
+    }
+
+    .mobile-navbar {
+        display: flex !important;
+    }
+
+    .nav-links,
+    .nav-button {
+        display: none !important;
+    }
+
+    .hamburger {
+        display: block !important;
+    }
+
+    .nav-container {
+        padding: 0 20px !important;
+    }
+
+
+    /* ── Global container resets ──────────────────────────── */
+
+    .page-container,
+    .hero,
+    .hero-container,
+    .why-section,
+    .inner-wrapper,
+    .top-header,
+    .bottom-content,
+    .hero-content,
+    .illustration-container,
+    .cards-area,
+    .feature-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        box-sizing: border-box !important;
+    }
+
+
+    /* ── Hero Section ─────────────────────────────────────── */
+
+    .hero {
+        max-width: 375px !important;
+        min-height: 700px !important;
+        background-color: #FAFBFF !important;
+        margin: 0 auto !important;
+        padding: 40px 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    /* Stack hero content + image vertically */
+    .hero-container {
+        max-width: 375px !important;
+        flex-direction: column !important;
+        gap: 36px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 16px !important;
+    }
+
+    .hero-content {
+        flex: none !important;
+        max-width: 343px !important;
+        gap: 24px !important;
+        padding: 0 !important;
+        position: static !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .heading-hero {
+        font-size: 34px !important;
+        line-height: 48px !important;
+        text-align: center !important;
+    }
+
+    .highlight img {
+        width: 184px !important;
+        height: 13px !important;
+        bottom: -9px !important;
+        transform: rotate(355deg) !important;
+    }
+
+    .body-text {
+        font-size: 18px !important;
+        line-height: 32px !important;
+    }
+
+    /* Feature checklist */
+    .feature-list-wrapper {
+        max-width: 315px !important;
+        align-items: flex-start !important;
+    }
+
+    .feature-row span {
+        white-space: normal !important;
+        text-align: left !important;
+    }
+
+    /* CTA buttons — stack vertically */
+    .hero-buttons-wrapper {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 16px !important;
+    }
+
+    .hero-buttons-wrapper .btn-filled,
+    .hero-buttons-wrapper .btn-outline {
+        width: 100% !important;
+        max-width: 343px !important;
+    }
+
+    /* Hero illustration */
+    .hero-image {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 375px !important;
+        flex: none !important;
+    }
+
+    .hero-image img {
+        width: 350px !important;
+        height: 296.13px !important;
+        object-fit: contain !important;
+        max-width: 100% !important;
+    }
+
+
+    /* ── Why Compliance Section ───────────────────────────── */
+
+    .why-section {
+        max-width: 375px !important;
+        padding: 40px 16px !important;
+        background-color: #FFFFFF !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 36px !important;
+    }
+
+    .inner-wrapper {
+        gap: 36px !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Top header stacks vertically on mobile */
+    .top-header {
+        flex-direction: column !important;
+        gap: 26px !important;
+        align-items: center !important;
+        text-align: center !important;
+        position: relative !important;
+        max-width: 343px !important;
+        margin: 0 auto !important;
+    }
+
+    .top-header .section-heading-block,
+    .top-header .section-desc-block {
+        max-width: 100% !important;
+    }
+
+    .heading-section {
+        font-size: 34px !important;
+        line-height: 48px !important;
+        text-align: center !important;
+    }
+
+    /* Mobile decorative arrow — anchored to .top-header */
+    .mobile-arrow-new {
+        display: block !important;
+        position: absolute !important;
+        width: 73.77px !important;
+        height: 63.83px !important;
+        right: -20px !important;
+        bottom: -80px !important;
+        z-index: 9999 !important;
+        object-fit: contain;
+    }
+
+    /* Chevron decor inside bottom-content */
+    .div2-vector {
+        display: block !important;
+        position: absolute !important;
+        width: 85px !important;
+        height: 21px !important;
+        top: 340px !important;
+        left: 0 !important;
+        object-fit: contain;
+        z-index: 5 !important;
+    }
+
+    /* Bottom content stacks vertically */
+    .bottom-content {
+        flex-direction: column !important;
+        gap: 36px !important;
+    }
+
+    .illustration-container {
+        display: flex !important;
+        justify-content: center !important;
+        padding: 25px !important;
+        min-height: auto !important;
+    }
+
+    .section2-img {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 343px !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* Cards */
+    .cards-area {
+        max-width: 343px !important;
+        gap: 26px !important;
+        margin: 0 auto !important;
+    }
+
+    .feature-card {
+        max-width: 343px !important;
+        min-height: 177px !important;
+    }
+
+    .card-text {
+        text-align: left !important;
+    }
+
+    .heading-card {
+        font-size: 20px !important;
+        line-height: 28px !important;
+    }
+
+    /* Hide desktop-only decorative vectors */
+    .desktop-vector {
+        display: none !important;
+    }
+
+} /* End @media (max-width: 768px) */
